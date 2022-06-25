@@ -15,24 +15,25 @@ export default function Sidebar(props) {
 
   return (
     <section className={"sidebar " + props.isOpen}>
+      {/* header */}
       <span className="material-icons" onClick={() => { props.handleOnToggle() }} >shopping_cart</span>
       <div className={"sidebar-header " + props.isOpen}>
         <p>Shopping Cart</p>
       </div>
-
+      {/* body */}
       <div className={"sidebar-container " + props.isOpen}>
         <CartTable products={props.products} isOpen={props.isOpen} shoppingCart={props.shoppingCart} />
-        <CheckOutForm 
-          isOpen={props.isOpen} 
-          shoppingCart={props.shoppingCart} 
-          checkoutForm={props.checkoutForm} 
-          handleOnCheckoutFormChange={props.handleOnCheckoutFormChange} 
+        <CheckOutForm
+          isOpen={props.isOpen}
+          shoppingCart={props.shoppingCart}
+          checkoutForm={props.checkoutForm}
+          handleOnCheckoutFormChange={props.handleOnCheckoutFormChange}
           handleOnSubmitCheckoutForm={props.handleOnSubmitCheckoutForm}
           lastReceipt={props.lastReceipt}
-          success={props.success}/>
-        
-        <Receipt success={props.success} products={props.products} lastReceipt={props.lastReceipt}/>
-        
+          success={props.success} />
+        {/* receipt */}
+        <Receipt success={props.success} products={props.products} lastReceipt={props.lastReceipt} />
+
       </div>
     </section>
   )

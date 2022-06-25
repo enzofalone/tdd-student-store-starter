@@ -14,11 +14,12 @@ import "./App.css"
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 export default function App() {
+  // template of checkoutForm
   const checkoutFormInitState = {
     'name': '',
     'email': ''
   }
-
+  // useStates
   const [products, setProducts] = React.useState([]);
   const [isFetching, setFetching] = React.useState(false);
   const [isCreating, setIsCreating] = React.useState(false);
@@ -215,7 +216,8 @@ export default function App() {
             handleOnToggle={handleOnToggle}
             success={success} />
           <Routes>
-            <Route path="/purchases/" element={<Purchases isFetching={isFetching} purchases={purchases} />} />
+            <Route path="/purchases/" element={<Purchases isFetching={isFetching} purchases={purchases} />} /> {/* test endpoint for stretch feature */}
+            {/* home */}
             <Route path="/"
               element={<Home
                 isFetching={isFetching}
@@ -224,6 +226,7 @@ export default function App() {
                 shoppingCart={shoppingCart}
                 handleAddItemToCart={handleAddItemToCart}
                 handleRemoveItemFromCart={handleRemoveItemFromCart} />} />
+            {/* product detail */}
             <Route path="/products/:productId"
               element={<ProductDetail
                 products={products}

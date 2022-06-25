@@ -24,7 +24,9 @@ export default function Receipt(props) {
     if (props?.lastReceipt != undefined) {
         return (
             <div className="receipt">
+                {/* success message */}
                 <h1 style={{ color: "green" }}>{props.success ? "Success!!" : null}</h1>
+                {/* receipt details */}
                 <h1>{props?.lastReceipt?.message?.title}</h1>
                 <h2>{props?.lastReceipt?.message?.body}</h2>
                 <ul className="receipt-list">

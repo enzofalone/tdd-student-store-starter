@@ -18,6 +18,7 @@ export default function ShoppingCart(props) {
   //each time shopping cart re-renders, we should update the subtotal
   calculateTotals();
 
+  //return shopping cart items found in the entire product state
   const getShoppingCartItems = () => {
     return (
       props.shoppingCart.map((e) => {
@@ -29,12 +30,13 @@ export default function ShoppingCart(props) {
       })
     )
   }
-
+// display table if shopping cart is not empty
   if (props.shoppingCart.length > 0) {
     return (
 
       <div>
         <table className="cart-table">
+          {/* header component */}
           <ShoppingCartHeader />
 
           {/* cart items rows get rendered here */}

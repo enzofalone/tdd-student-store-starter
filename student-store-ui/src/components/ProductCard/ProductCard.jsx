@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import './ProductCard.css'
 
 export default function ProductCard(props) {
-  const [isSelected, setSelected] = React.useState(false);
 
+  // iterate through shopping cart to get the product count
   const getProductCount = () => {
     return props.shoppingCart.find((item, i) => {
       return item.itemId === props.product.id;
@@ -25,8 +25,6 @@ export default function ProductCard(props) {
       }
 
       <div className="product-card-overview">
-
-
         <div className="product-card-header">
           <div className="section">
             <h1 className="title">{props.product.name}</h1>

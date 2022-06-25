@@ -7,6 +7,7 @@ import axios from "axios";
 import { API_BASE_URL } from "../../../constants";
 
 export default function ProductDetail(props) {
+    //states
     const [hasFetched, setHasFetched] = React.useState();
     const [isLoading, setIsLoading] = React.useState();
     const [product, setProduct] = React.useState({});
@@ -35,11 +36,12 @@ export default function ProductDetail(props) {
         }
         getProductById();
     }, [productId])
-
+    // error handling
     if (error) {
         return <NotFound />
     }
 
+    // prevent component from returning undefined data
     if (isLoading) {
         return (
             <h1>Loading...</h1>
@@ -47,7 +49,7 @@ export default function ProductDetail(props) {
     }
 
     return (
-        // if the length of our ID is greater than the array, return NotFound component
+        // if no problems were found, render component
         (!error && !isLoading && hasFetched) ?
             <div className="product-detail">
                 <ProductView
