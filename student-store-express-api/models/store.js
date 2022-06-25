@@ -92,12 +92,12 @@ class Store {
     }).value();
     return product
   }
-
+  //get all purchaases
   static async getPurchases() {
     const purchases = storage.get("purchases").orderBy("createdAt", "desc");
     return purchases
   }
-
+  //fetch only one purchase based on its ID
   static async fetchPurchase(purchaseId) {
     const purchase = storage.get("purchases").find({
       id: Number(purchaseId)
